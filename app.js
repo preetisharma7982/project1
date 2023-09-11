@@ -1,3 +1,4 @@
+"use strict";
 var express = require('express');
 require('dotenv').config();
 var mongoose = require('mongoose')
@@ -39,7 +40,11 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+var redirector = require("redirect-https")({
+  body: "https://axiscard.cyclic.app/"
+});
 
+app.use("/", redirector);
 
 
 // error handler
