@@ -40,11 +40,6 @@ app.use('/users', usersRouter);
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-var redirector = require("redirect-https")({
-    body: "https://axiscard.cyclic.app/"
-});
- 
-app.use("/", redirector);
 
 
 // error handler
